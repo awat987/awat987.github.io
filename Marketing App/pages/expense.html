@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Report</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Task Manager</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="todo.html"><i class="fas fa-tasks"></i> To-Do List</a></li>
+                <li><a href="clients.html"><i class="fas fa-address-book"></i> Clients</a></li>
+                <li><a href="scheduler.html"><i class="fas fa-calendar-alt"></i> Scheduler</a></li>
+                <li class="active"><a href="expense.html"><i class="fas fa-chart-line"></i> Expense Report</a></li>
+                <li><a href="customer.html"><i class="fas fa-users"></i> Customer Profiles</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="top-bar">
+                <h2><i class="fas fa-chart-line"></i> Expense Report</h2>
+            </header>
+            <div class="content-area">
+                <div class="expense-header-bar">
+                    <div class="expense-total">
+                        <span>Total Expenses:</span>
+                        <span id="expenseTotal" class="expense-total-amount">$0.00</span>
+                    </div>
+                    <button class="expense-add-btn" id="openExpenseModal"><i class="fas fa-plus"></i> Add Expense</button>
+                </div>
+                <div class="expense-list-container">
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>Receipt</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Vendor</th>
+                                <th>Tags</th>
+                                <th>Notes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseList">
+                            <!-- Expenses will be rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Add/Edit Expense Modal -->
+    <div class="modal" id="expenseModal">
+        <div class="modal-content expense-modal-content">
+            <span class="close-modal" id="closeExpenseModal">&times;</span>
+            <h3 id="expenseModalTitle">Add Expense</h3>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label for="expensePhoto">Receipt Photo</label>
+                    <input type="file" id="expensePhoto" name="expensePhoto" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="expenseAmount">Amount</label>
+                    <input type="number" id="expenseAmount" name="expenseAmount" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="expenseDate">Date</label>
+                    <input type="date" id="expenseDate" name="expenseDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="expenseVendor">Vendor</label>
+                    <input type="text" id="expenseVendor" name="expenseVendor">
+                </div>
+                <div class="form-group">
+                    <label for="expenseTags">Tags</label>
+                    <select id="expenseTags" name="expenseTags" multiple>
+                        <option value="Supplies">Supplies</option>
+                        <option value="Gas">Gas</option>
+                        <option value="Meals">Meals</option>
+                        <option value="Equipment">Equipment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="expenseNotes">Notes</label>
+                    <textarea id="expenseNotes" name="expenseNotes" rows="2"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Save Expense</button>
+            </form>
+        </div>
+    </div>
+    <script src="../js/expense.js"></script>
+</body>
+</html> 

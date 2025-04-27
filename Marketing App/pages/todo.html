@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Task Manager</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="active"><a href="todo.html"><i class="fas fa-tasks"></i> To-Do List</a></li>
+                <li><a href="clients.html"><i class="fas fa-address-book"></i> Clients</a></li>
+                <li><a href="scheduler.html"><i class="fas fa-calendar-alt"></i> Scheduler</a></li>
+                <li><a href="expense.html"><i class="fas fa-chart-line"></i> Expense Report</a></li>
+                <li><a href="customer.html"><i class="fas fa-users"></i> Customer Profiles</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="things-header">
+                <h2><span class="star">★</span> Today</h2>
+                <button class="add-minion-btn" id="addMinionsBtn" title="Add Minion"><i class="fas fa-user-plus"></i> Add Minion</button>
+            </header>
+            <div class="things-task-list" id="thingsTaskList">
+                <!-- Tasks will be rendered here -->
+            </div>
+            <button class="things-add-btn" id="thingsAddBtn"><i class="fas fa-plus"></i></button>
+        </main>
+    </div>
+    <!-- Minion Management Modal -->
+    <div class="modal" id="minionModal">
+        <div class="modal-content minion-modal-content">
+            <span class="close-modal" id="closeMinionModal">&times;</span>
+            <h3>Manage Minions</h3>
+            <form id="minionForm">
+                <input type="text" id="minionName" placeholder="Minion name" required>
+                <button type="submit">Add Minion</button>
+            </form>
+            <ul id="minionList"></ul>
+        </div>
+    </div>
+    <!-- Label Management Modal -->
+    <div class="modal" id="labelModal">
+        <div class="modal-content minion-modal-content">
+            <span class="close-modal" id="closeLabelModal">&times;</span>
+            <h3>Edit Labels</h3>
+            <form id="labelForm">
+                <input type="text" id="labelName" placeholder="Label name" required>
+                <input type="color" id="labelColor" value="#bdbdbd" style="width:40px; height:40px; border:none; margin-left:8px;">
+                <button type="submit">Add Label</button>
+            </form>
+            <ul id="labelList"></ul>
+            <button id="addLabelBtn"><i class="fas fa-plus"></i> New label</button>
+        </div>
+    </div>
+    <script src="../js/todo.js"></script>
+</body>
+</html> 

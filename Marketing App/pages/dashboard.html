@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Task Manager</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="active"><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="todo.html"><i class="fas fa-tasks"></i> To-Do List</a></li>
+                <li><a href="clients.html"><i class="fas fa-address-book"></i> Clients</a></li>
+                <li><a href="scheduler.html"><i class="fas fa-calendar-alt"></i> Scheduler</a></li>
+                <li><a href="expense.html"><i class="fas fa-chart-line"></i> Expense Report</a></li>
+                <li><a href="customer.html"><i class="fas fa-users"></i> Customer Profiles</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Sales Dashboard <span class="star">★</span></h1>
+                <div class="dashboard-controls">
+                    <select id="periodSelector">
+                        <option value="month">This Month</option>
+                        <option value="week">This Week</option>
+                    </select>
+                </div>
+            </header>
+            <div class="dashboard-widgets" id="dashboardWidgets">
+                <!-- KPI Boxes -->
+                <div class="dashboard-widget kpi-widget" data-widget="customers">
+                    <div class="kpi-title">Customers</div>
+                    <div class="kpi-value" id="kpiCustomers">0</div>
+                    <div class="kpi-change up" id="kpiCustomersChange"><i class="fas fa-arrow-up"></i> <span>0%</span></div>
+                </div>
+                <div class="dashboard-widget kpi-widget" data-widget="revenue">
+                    <div class="kpi-title">Revenue</div>
+                    <div class="kpi-value" id="kpiRevenue">$0</div>
+                    <div class="kpi-change up" id="kpiRevenueChange"><i class="fas fa-arrow-up"></i> <span>0%</span></div>
+                </div>
+                <div class="dashboard-widget kpi-widget" data-widget="expenses">
+                    <div class="kpi-title">Expenses</div>
+                    <div class="kpi-value" id="kpiExpenses">$0</div>
+                    <div class="kpi-change down" id="kpiExpensesChange"><i class="fas fa-arrow-down"></i> <span>0%</span></div>
+                </div>
+                <div class="dashboard-widget kpi-widget" data-widget="profit">
+                    <div class="kpi-title">Profit</div>
+                    <div class="kpi-value" id="kpiProfit">$0</div>
+                    <div class="kpi-change up" id="kpiProfitChange"><i class="fas fa-arrow-up"></i> <span>0%</span></div>
+                </div>
+                <!-- Graphs -->
+                <div class="dashboard-widget graph-widget" data-widget="pie">
+                    <div class="graph-title">Deal status distribution</div>
+                    <canvas id="pieChart"></canvas>
+                </div>
+                <div class="dashboard-widget graph-widget" data-widget="bar">
+                    <div class="graph-title">Actual Revenue by Month (Deals won)</div>
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html> 
