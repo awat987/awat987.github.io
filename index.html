@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Dashboard</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Task Manager</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="active"><a href="pages/dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="pages/todo.html"><i class="fas fa-tasks"></i> To-Do List</a></li>
+                <li><a href="pages/clients.html"><i class="fas fa-address-book"></i> Clients</a></li>
+                <li><a href="pages/scheduler.html"><i class="fas fa-calendar-alt"></i> Scheduler</a></li>
+                <li><a href="pages/expense.html"><i class="fas fa-chart-line"></i> Expense Report</a></li>
+                <li><a href="pages/customer.html"><i class="fas fa-users"></i> Customer Profiles</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-profile">
+                    <img src="assets/images/default-avatar.png" alt="User Avatar">
+                    <span>User Name</span>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Dashboard content will be loaded here -->
+                <div class="welcome-message">
+                    <h2>Welcome to Your Task Management Dashboard</h2>
+                    <p>Select a section from the sidebar to get started</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

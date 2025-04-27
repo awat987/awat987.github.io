@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Task Manager</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="todo.html"><i class="fas fa-tasks"></i> To-Do List</a></li>
+                <li class="active"><a href="clients.html"><i class="fas fa-address-book"></i> Clients</a></li>
+                <li><a href="scheduler.html"><i class="fas fa-calendar-alt"></i> Scheduler</a></li>
+                <li><a href="expense.html"><i class="fas fa-chart-line"></i> Expense Report</a></li>
+                <li><a href="customer.html"><i class="fas fa-users"></i> Customer Profiles</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="top-bar client-header-bar">
+                <div class="header-actions">
+                    <button class="add-person-btn add-client-btn"><i class="fas fa-user-plus"></i> Add Person</button>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search clients...">
+                </div>
+            </header>
+            <div class="content-area">
+                <h2>Clients</h2>
+                <div class="client-table-container">
+                    <table class="client-table">
+                        <thead>
+                            <tr>
+                                <th>Avatar</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Date/Time</th>
+                                <th>Cleaning</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Client rows will go here -->
+                            <tr>
+                                <td>Jane Doe</td>
+                                <td>jane@example.com</td>
+                                <td>(555) 123-4567</td>
+                                <td>Acme Corp</td>
+                                <td>
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>john@example.com</td>
+                                <td>(555) 987-6543</td>
+                                <td>Globex Inc</td>
+                                <td>
+                                    <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Add Client Modal -->
+    <div class="modal" id="addClientModal">
+        <div class="modal-content client-modal-content">
+            <span class="close-modal" id="closeAddClientModal">&times;</span>
+            <h3>Add Client</h3>
+            <form id="addClientForm" class="client-form-grid">
+                <div class="form-group">
+                    <label for="clientName">Name</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Phone Number</label>
+                    <input type="text" id="clientPhone" name="clientPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Email</label>
+                    <input type="email" id="clientEmail" name="clientEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientAddress">Address</label>
+                    <input type="text" id="clientAddress" name="clientAddress">
+                </div>
+                <div class="form-group">
+                    <label for="cleaningDate">Cleaning Date</label>
+                    <input type="date" id="cleaningDate" name="cleaningDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="cleaningTime">Cleaning Time</label>
+                    <input type="time" id="cleaningTime" name="cleaningTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="cleaningType">Cleaning Type</label>
+                    <select id="cleaningType" name="cleaningType" required>
+                        <option value="">Select type...</option>
+                        <option value="Basic Cleaning">Basic Cleaning</option>
+                        <option value="Deep Cleaning">Deep Cleaning</option>
+                        <option value="Routine Cleaning">Routine Cleaning</option>
+                        <option value="Move in/out Cleaning">Move in/out Cleaning</option>
+                    </select>
+                </div>
+                <div class="form-group" id="occurrenceGroup" style="display:none;">
+                    <label for="occurrence">Occurrence</label>
+                    <select id="occurrence" name="occurrence">
+                        <option value="">Select occurrence...</option>
+                        <option value="Every week">Every week</option>
+                        <option value="Bi-weekly">Bi-weekly</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Quarterly">Quarterly</option>
+                    </select>
+                </div>
+                <div class="form-group form-notes" style="grid-column: 1 / -1;">
+                    <label for="clientNotes">Notes</label>
+                    <textarea id="clientNotes" name="clientNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group form-price" style="grid-column: 1 / -1;">
+                    <label for="clientPrice">Price</label>
+                    <input type="text" id="clientPrice" name="clientPrice">
+                </div>
+                <button type="submit" class="submit-btn" style="grid-column: 1 / -1;">Add Client</button>
+            </form>
+        </div>
+    </div>
+    <button class="things-add-btn add-client-btn"><i class="fas fa-plus"></i></button>
+    <script src="../js/main.js"></script>
+</body>
+</html> 

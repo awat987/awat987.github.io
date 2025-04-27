@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduler</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Task Manager</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="todo.html"><i class="fas fa-tasks"></i> To-Do List</a></li>
+                <li><a href="clients.html"><i class="fas fa-address-book"></i> Clients</a></li>
+                <li class="active"><a href="scheduler.html"><i class="fas fa-calendar-alt"></i> Scheduler</a></li>
+                <li><a href="expense.html"><i class="fas fa-chart-line"></i> Expense Report</a></li>
+                <li><a href="customer.html"><i class="fas fa-users"></i> Customer Profiles</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="top-bar">
+                <h2><i class="fas fa-calendar-alt"></i> Scheduler</h2>
+            </header>
+            <div class="content-area">
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        <div>
+                            <div class="calendar-title">Calendar</div>
+                            <div class="calendar-subtitle">Stay Organized and On Track with Your Personalized Calendar</div>
+                        </div>
+                        <div class="calendar-header-actions">
+                            <button class="calendar-tab active">All Scheduled</button>
+                            <button class="calendar-tab">Events</button>
+                            <button class="calendar-tab">Meetings</button>
+                            <button class="calendar-tab">Task Reminders</button>
+                            <div class="calendar-search-group">
+                                <input type="text" class="calendar-search" placeholder="Search...">
+                                <button class="calendar-filter"><i class="fas fa-filter"></i> Filter</button>
+                            </div>
+                            <button class="calendar-new-btn"><i class="fas fa-plus"></i> New</button>
+                        </div>
+                    </div>
+                    <div class="calendar-toolbar">
+                        <div class="calendar-toolbar-left">
+                            <button class="calendar-nav-btn" id="calendarPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                            <span class="calendar-date-range" id="calendarDateRange">24 Jun - 30 Jun 2024</span>
+                            <button class="calendar-nav-btn" id="calendarNextBtn"><i class="fas fa-chevron-right"></i></button>
+                            <button class="calendar-today-btn" id="calendarTodayBtn">Today</button>
+                        </div>
+                        <div class="calendar-toolbar-right">
+                            <button class="calendar-view-btn" id="dayViewBtn">Day</button>
+                            <button class="calendar-view-btn active" id="weekViewBtn">Week</button>
+                            <button class="calendar-view-btn" id="monthViewBtn">Month</button>
+                            <label for="calendarScaleSlider" style="margin-left:18px;font-weight:500;">Scale</label>
+                            <input type="range" id="calendarScaleSlider" min="80" max="400" value="224" step="8" style="vertical-align:middle;width:120px;">
+                        </div>
+                    </div>
+                    <div class="calendar-week-grid" id="calendarWeekGrid"></div>
+                </div>
+                <div class="calendar-day-grid" id="calendarDayGrid" style="display:none;"></div>
+                <div class="calendar-month-grid" id="calendarMonthGrid" style="display:none;"></div>
+            </div>
+        </main>
+    </div>
+    <!-- Event View/Edit Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content event-modal-content">
+            <span class="close-modal" id="closeEventModal">&times;</span>
+            <h3 id="eventModalTitle">Event Details</h3>
+            <div id="eventModalDetails"></div>
+            <div class="event-modal-actions">
+                <button id="editEventBtn" class="submit-btn">Edit</button>
+                <button id="deleteEventBtn" class="submit-btn" style="background:#e2445c;">Delete</button>
+            </div>
+        </div>
+    </div>
+    <!-- Event Create/Edit Modal -->
+    <div class="modal" id="eventFormModal">
+        <div class="modal-content event-modal-content">
+            <span class="close-modal" id="closeEventFormModal">&times;</span>
+            <h3 id="eventFormModalTitle">New Event</h3>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Title</label>
+                    <input type="text" id="eventTitle" name="eventTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventType">Type</label>
+                    <select id="eventType" name="eventType" required>
+                        <option value="Meeting">Meeting</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Task">Task</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventClient">Client</label>
+                    <select id="eventClient" name="eventClient"></select>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date</label>
+                    <input type="date" id="eventDate" name="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventStart">Start Time</label>
+                    <input type="time" id="eventStart" name="eventStart" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventEnd">End Time</label>
+                    <input type="time" id="eventEnd" name="eventEnd" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventNotes">Notes</label>
+                    <textarea id="eventNotes" name="eventNotes" rows="2"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Save Event</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="../js/scheduler.js"></script>
+</body>
+</html> 
